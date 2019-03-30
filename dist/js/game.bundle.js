@@ -98,6 +98,10 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _handler = __webpack_require__(/*! ./handler */ "./src/handler.js");
+
+var _handler2 = _interopRequireDefault(_handler);
+
 var _state = __webpack_require__(/*! ./states/state */ "./src/states/state.js");
 
 var _state2 = _interopRequireDefault(_state);
@@ -105,6 +109,10 @@ var _state2 = _interopRequireDefault(_state);
 var _loading = __webpack_require__(/*! ./states/loading */ "./src/states/loading.js");
 
 var _loading2 = _interopRequireDefault(_loading);
+
+var _menu = __webpack_require__(/*! ./states/menu */ "./src/states/menu.js");
+
+var _menu2 = _interopRequireDefault(_menu);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -116,6 +124,7 @@ var Game = function () {
 
     this.canvas = canvas;
     this.ctx = ctx;
+    // init listeners here
   }
 
   _createClass(Game, [{
@@ -129,10 +138,15 @@ var Game = function () {
     value: function init() {
       // Add listeners here
 
+      // initialising handler
+      this.handler = new _handler2.default(this);
 
-      // set initial state
-      this.state = new _state2.default();
-      this.state.setState(new _loading2.default());
+      // Loading States
+      this.menuState = new _menu2.default(this.handler);
+      this.loadingState = new _loading2.default(this.handler);
+
+      // Setting initial State
+      this.handler.currentState = this.menuState;
     }
   }, {
     key: 'loop',
@@ -159,7 +173,7 @@ var Game = function () {
     key: 'tick',
     value: function tick() {
       // run tick method in current game state
-      if (this.state.getState() != null) this.state.getState().tick();
+      if (this.handler.currentState != null) this.handler.currentState.tick();
     }
   }, {
     key: 'render',
@@ -167,8 +181,8 @@ var Game = function () {
       // clear screen
       this.ctx.clearRect(10, 10, 50, 50);
       // run state's draw method
-      if (this.state.getState() != null) {
-        this.state.getState().render(this.canvas, this.ctx);
+      if (this.handler.currentState != null) {
+        this.handler.currentState.render(this.canvas, this.ctx);
       }
     }
   }]);
@@ -183,6 +197,34 @@ canvas.height = innerHeight;
 
 var game = new Game(canvas, ctx);
 game.start();
+
+/***/ }),
+
+/***/ "./src/handler.js":
+/*!************************!*\
+  !*** ./src/handler.js ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Handler = function Handler(game) {
+  _classCallCheck(this, Handler);
+
+  this.game = game;
+  this.currentState = null;
+  this.world = null;
+};
+
+exports.default = Handler;
 
 /***/ }),
 
@@ -217,10 +259,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Loading = function (_State) {
   _inherits(Loading, _State);
 
-  function Loading() {
+  function Loading(handler) {
     _classCallCheck(this, Loading);
 
-    var _this = _possibleConstructorReturn(this, (Loading.__proto__ || Object.getPrototypeOf(Loading)).call(this));
+    var _this = _possibleConstructorReturn(this, (Loading.__proto__ || Object.getPrototypeOf(Loading)).call(this, handler));
 
     console.log('Loading state Loaded');
     return _this;
@@ -228,11 +270,13 @@ var Loading = function (_State) {
 
   _createClass(Loading, [{
     key: 'tick',
-    value: function tick() {}
+    value: function tick() {
+      // this.handler.currentState = this.handler.game.menuState;
+    }
   }, {
     key: 'render',
     value: function render(canvas, ctx) {
-      ctx.fillStyle = "red";
+      ctx.fillStyle = "blue";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
   }]);
@@ -241,6 +285,66 @@ var Loading = function (_State) {
 }(_state2.default);
 
 exports.default = Loading;
+
+/***/ }),
+
+/***/ "./src/states/menu.js":
+/*!****************************!*\
+  !*** ./src/states/menu.js ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _state = __webpack_require__(/*! ./state */ "./src/states/state.js");
+
+var _state2 = _interopRequireDefault(_state);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Menu = function (_State) {
+  _inherits(Menu, _State);
+
+  function Menu(handler) {
+    _classCallCheck(this, Menu);
+
+    var _this = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, handler));
+
+    console.log('Menu state Loaded');
+    return _this;
+  }
+
+  _createClass(Menu, [{
+    key: 'tick',
+    value: function tick() {
+      // this.handler.currentState = this.handler.game.loadingState;
+    }
+  }, {
+    key: 'render',
+    value: function render(canvas, ctx) {
+      ctx.fillStyle = "red";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+  }]);
+
+  return Menu;
+}(_state2.default);
+
+exports.default = Menu;
 
 /***/ }),
 
@@ -263,10 +367,11 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var State = function () {
-  function State() {
+  function State(handler) {
     _classCallCheck(this, State);
 
     this.currentState = null;
+    this.handler = handler;
   }
 
   _createClass(State, [{

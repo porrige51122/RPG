@@ -1,6 +1,7 @@
 class State {
-  constructor() {
+  constructor(handler) {
     this.currentState = null;
+    this.handler = handler;
   }
 
   setState(state) {

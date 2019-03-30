@@ -1,10 +1,13 @@
+import Handler from './handler';
 import State from './states/state';
 import Loading from './states/loading';
+import Menu from './states/menu';
 
 class Game {
   constructor(canvas, ctx) {
     this.canvas = canvas;
     this.ctx = ctx;
+    // init listeners here
   }
 
   start() {
@@ -15,10 +18,15 @@ class Game {
   init() {
     // Add listeners here
 
+    // initialising handler
+    this.handler = new Handler(this);
 
-    // set initial state
-    this.state = new State();
-    this.state.setState(new Loading());
+    // Loading States
+    this.menuState = new Menu(this.handler);
+    this.loadingState = new Loading(this.handler);
+
+    // Setting initial State
+    this.handler.currentState = this.menuState;
   }
 
   loop() {
@@ -40,16 +48,16 @@ class Game {
 
   tick() {
     // run tick method in current game state
-    if (this.state.getState() != null)
-      this.state.getState().tick();
+    if (this.handler.currentState != null)
+      this.handler.currentState.tick();
   }
 
   render() {
     // clear screen
     this.ctx.clearRect(10, 10, 50, 50);
     // run state's draw method
-    if (this.state.getState() != null) {
-      this.state.getState().render(this.canvas, this.ctx);
+    if (this.handler.currentState != null) {
+      this.handler.currentState.render(this.canvas, this.ctx);
     }
   }
 }
