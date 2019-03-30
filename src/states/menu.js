@@ -7,7 +7,12 @@ class Menu extends State {
   }
 
   tick() {
-    // this.handler.currentState = this.handler.game.loadingState;
+    if (this.handler.game.mouse.mouseDown)
+      this.mouseDown = true;
+    else if (this.mouseDown) {
+      this.mouseDown = false;
+      this.handler.currentState = this.handler.game.loadingState;
+    }
   }
 
   render(canvas, ctx) {

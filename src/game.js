@@ -1,13 +1,16 @@
 import Handler from './handler';
-import State from './states/state';
+// states
 import Loading from './states/loading';
 import Menu from './states/menu';
+// listeners
+import Mouse from './input/mouse';
 
 class Game {
   constructor(canvas, ctx) {
     this.canvas = canvas;
     this.ctx = ctx;
     // init listeners here
+    this.mouse = new Mouse();
   }
 
   start() {
@@ -17,7 +20,8 @@ class Game {
 
   init() {
     // Add listeners here
-
+    this.canvas.addEventListener("mousedown", () => this.mouse.click());
+    this.canvas.addEventListener("mouseup", () => this.mouse.release());
     // initialising handler
     this.handler = new Handler(this);
 

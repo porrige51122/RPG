@@ -97,14 +97,14 @@
 
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+// states
+
+// listeners
+
 
 var _handler = __webpack_require__(/*! ./handler */ "./src/handler.js");
 
 var _handler2 = _interopRequireDefault(_handler);
-
-var _state = __webpack_require__(/*! ./states/state */ "./src/states/state.js");
-
-var _state2 = _interopRequireDefault(_state);
 
 var _loading = __webpack_require__(/*! ./states/loading */ "./src/states/loading.js");
 
@@ -113,6 +113,10 @@ var _loading2 = _interopRequireDefault(_loading);
 var _menu = __webpack_require__(/*! ./states/menu */ "./src/states/menu.js");
 
 var _menu2 = _interopRequireDefault(_menu);
+
+var _mouse = __webpack_require__(/*! ./input/mouse */ "./src/input/mouse.js");
+
+var _mouse2 = _interopRequireDefault(_mouse);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -125,6 +129,7 @@ var Game = function () {
     this.canvas = canvas;
     this.ctx = ctx;
     // init listeners here
+    this.mouse = new _mouse2.default();
   }
 
   _createClass(Game, [{
@@ -136,8 +141,15 @@ var Game = function () {
   }, {
     key: 'init',
     value: function init() {
-      // Add listeners here
+      var _this = this;
 
+      // Add listeners here
+      this.canvas.addEventListener("mousedown", function () {
+        return _this.mouse.click();
+      });
+      this.canvas.addEventListener("mouseup", function () {
+        return _this.mouse.release();
+      });
       // initialising handler
       this.handler = new _handler2.default(this);
 
@@ -151,13 +163,13 @@ var Game = function () {
   }, {
     key: 'loop',
     value: function loop() {
-      var _this = this;
+      var _this2 = this;
 
       window.requestAnimationFrame(function () {
-        _this.resize();
-        _this.tick();
-        _this.render();
-        _this.loop();
+        _this2.resize();
+        _this2.tick();
+        _this2.render();
+        _this2.loop();
       });
     }
   }, {
@@ -228,6 +240,56 @@ exports.default = Handler;
 
 /***/ }),
 
+/***/ "./src/input/mouse.js":
+/*!****************************!*\
+  !*** ./src/input/mouse.js ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Mouse = function () {
+  function Mouse() {
+    _classCallCheck(this, Mouse);
+
+    this.mousePos = [];
+    this.mouseDown = false;
+  }
+
+  _createClass(Mouse, [{
+    key: "click",
+    value: function click() {
+      this.mouseDown = true;
+    }
+  }, {
+    key: "release",
+    value: function release() {
+      this.mouseDown = false;
+    }
+  }, {
+    key: "move",
+    value: function move(pos) {
+      this.mousePos = [pos.clientX, pos.clientY];
+    }
+  }]);
+
+  return Mouse;
+}();
+
+exports.default = Mouse;
+
+/***/ }),
+
 /***/ "./src/states/loading.js":
 /*!*******************************!*\
   !*** ./src/states/loading.js ***!
@@ -262,19 +324,19 @@ var Loading = function (_State) {
   function Loading(handler) {
     _classCallCheck(this, Loading);
 
-    var _this = _possibleConstructorReturn(this, (Loading.__proto__ || Object.getPrototypeOf(Loading)).call(this, handler));
-
-    console.log('Loading state Loaded');
-    return _this;
+    return _possibleConstructorReturn(this, (Loading.__proto__ || Object.getPrototypeOf(Loading)).call(this, handler));
   }
 
   _createClass(Loading, [{
-    key: 'tick',
+    key: "tick",
     value: function tick() {
-      // this.handler.currentState = this.handler.game.menuState;
+      if (this.handler.game.mouse.mouseDown) this.mouseDown = true;else if (this.mouseDown) {
+        this.mouseDown = false;
+        this.handler.currentState = this.handler.game.menuState;
+      }
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render(canvas, ctx) {
       ctx.fillStyle = "blue";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -331,7 +393,10 @@ var Menu = function (_State) {
   _createClass(Menu, [{
     key: 'tick',
     value: function tick() {
-      // this.handler.currentState = this.handler.game.loadingState;
+      if (this.handler.game.mouse.mouseDown) this.mouseDown = true;else if (this.mouseDown) {
+        this.mouseDown = false;
+        this.handler.currentState = this.handler.game.loadingState;
+      }
     }
   }, {
     key: 'render',
@@ -370,21 +435,10 @@ var State = function () {
   function State(handler) {
     _classCallCheck(this, State);
 
-    this.currentState = null;
     this.handler = handler;
   }
 
   _createClass(State, [{
-    key: "setState",
-    value: function setState(state) {
-      this.currentState = state;
-    }
-  }, {
-    key: "getState",
-    value: function getState() {
-      return this.currentState;
-    }
-  }, {
     key: "tick",
     value: function tick() {}
   }, {

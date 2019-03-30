@@ -3,11 +3,15 @@ import State from './state';
 class Loading extends State {
   constructor(handler) {
     super(handler);
-    console.log('Loading state Loaded')
   }
 
   tick() {
-    // this.handler.currentState = this.handler.game.menuState;
+    if (this.handler.game.mouse.mouseDown)
+      this.mouseDown = true;
+    else if (this.mouseDown) {
+      this.mouseDown = false;
+      this.handler.currentState = this.handler.game.menuState;
+    }
   }
 
   render(canvas, ctx) {
