@@ -4,8 +4,6 @@ class Handler {
     this.currentState = null;
     this.world = null;
   }
-
-
 }
 
 export default Handler;
