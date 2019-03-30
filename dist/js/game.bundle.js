@@ -150,6 +150,9 @@ var Game = function () {
       this.canvas.addEventListener("mouseup", function () {
         return _this.mouse.release();
       });
+      this.canvas.addEventListener("mousemove", function () {
+        return _this.mouse.move(event);
+      });
       // initialising handler
       this.handler = new _handler2.default(this);
 
@@ -384,14 +387,11 @@ var Menu = function (_State) {
   function Menu(handler) {
     _classCallCheck(this, Menu);
 
-    var _this = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, handler));
-
-    console.log('Menu state Loaded');
-    return _this;
+    return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, handler));
   }
 
   _createClass(Menu, [{
-    key: 'tick',
+    key: "tick",
     value: function tick() {
       if (this.handler.game.mouse.mouseDown) this.mouseDown = true;else if (this.mouseDown) {
         this.mouseDown = false;
@@ -399,7 +399,7 @@ var Menu = function (_State) {
       }
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render(canvas, ctx) {
       ctx.fillStyle = "red";
       ctx.fillRect(0, 0, canvas.width, canvas.height);

@@ -22,6 +22,7 @@ class Game {
     // Add listeners here
     this.canvas.addEventListener("mousedown", () => this.mouse.click());
     this.canvas.addEventListener("mouseup", () => this.mouse.release());
+    this.canvas.addEventListener("mousemove", () => this.mouse.move(event));
     // initialising handler
     this.handler = new Handler(this);
 

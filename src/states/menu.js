@@ -3,7 +3,6 @@ import State from './state';
 class Menu extends State {
   constructor(handler) {
     super(handler);
-    console.log('Menu state Loaded')
   }
 
   tick() {
