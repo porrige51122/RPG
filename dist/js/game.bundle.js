@@ -144,13 +144,13 @@ var Game = function () {
       var _this = this;
 
       // Add listeners here
-      this.canvas.addEventListener("mousedown", function () {
+      canvas.addEventListener("mousedown", function () {
         return _this.mouse.click();
       });
-      this.canvas.addEventListener("mouseup", function () {
+      canvas.addEventListener("mouseup", function () {
         return _this.mouse.release();
       });
-      this.canvas.addEventListener("mousemove", function () {
+      canvas.addEventListener("mousemove", function () {
         return _this.mouse.move(event);
       });
       // initialising handler
@@ -179,9 +179,9 @@ var Game = function () {
     key: 'resize',
     value: function resize() {
       // changes canvas size if window changes
-      if (this.canvas.width != window.innerWidth || this.canvas.height != window.innerHeight) {
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
+      if (canvas.width != window.innerWidth || canvas.height != window.innerHeight) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
       }
     }
   }, {

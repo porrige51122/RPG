@@ -20,9 +20,9 @@ class Game {
 
   init() {
     // Add listeners here
-    this.canvas.addEventListener("mousedown", () => this.mouse.click());
-    this.canvas.addEventListener("mouseup", () => this.mouse.release());
-    this.canvas.addEventListener("mousemove", () => this.mouse.move(event));
+    canvas.addEventListener("mousedown", () => this.mouse.click());
+    canvas.addEventListener("mouseup", () => this.mouse.release());
+    canvas.addEventListener("mousemove", () => this.mouse.move(event));
     // initialising handler
     this.handler = new Handler(this);
 
@@ -45,9 +45,9 @@ class Game {
 
   resize() {
     // changes canvas size if window changes
-    if (this.canvas.width != window.innerWidth || this.canvas.height != window.innerHeight) {
-      this.canvas.width = window.innerWidth;
-      this.canvas.height = window.innerHeight;
+    if (canvas.width != window.innerWidth ||canvas.height != window.innerHeight) {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     }
   }
 
