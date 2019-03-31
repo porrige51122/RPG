@@ -1,14 +1,19 @@
 import Handler from './handler';
+import Assets from './graphics/assets';
+
 // states
 import Loading from './states/loading';
 import Menu from './states/menu';
+
 // listeners
 import Mouse from './input/mouse';
+
 
 class Game {
   constructor(canvas, ctx) {
     this.canvas = canvas;
     this.ctx = ctx;
+
     // init listeners here
     this.mouse = new Mouse();
   }
@@ -23,6 +28,9 @@ class Game {
     canvas.addEventListener("mousedown", () => this.mouse.click());
     canvas.addEventListener("mouseup", () => this.mouse.release());
     canvas.addEventListener("mousemove", () => this.mouse.move(event));
+    // Get all assets
+    this.assets = new Assets();
+
     // initialising handler
     this.handler = new Handler(this);
 
@@ -32,6 +40,8 @@ class Game {
 
     // Setting initial State
     this.handler.currentState = this.menuState;
+
+
   }
 
   loop() {
@@ -62,7 +72,7 @@ class Game {
     this.ctx.clearRect(10, 10, 50, 50);
     // run state's draw method
     if (this.handler.currentState != null) {
-      this.handler.currentState.render(this.canvas, this.ctx);
+      this.handler.currentState.render(canvas, ctx);
     }
   }
 }

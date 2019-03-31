@@ -1,8 +1,10 @@
 import State from './state';
+import World from '../worlds/world';
 
 class Menu extends State {
   constructor(handler) {
     super(handler);
+    this.world = new World(handler);
   }
 
   tick() {
@@ -12,11 +14,13 @@ class Menu extends State {
       this.mouseDown = false;
       this.handler.currentState = this.handler.game.loadingState;
     }
+    this.world.tick();
   }
 
   render(canvas, ctx) {
     ctx.fillStyle = "red";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    this.world.render(canvas, ctx);
   }
 }
 

@@ -2,7 +2,7 @@ class EntityManager {
   constructor(handler, player) {
     this.handler = handler;
     this.player = player;
-    this.entities = [this.player];
+    this.entities = [];
   }
 
   tick() {
@@ -11,14 +11,19 @@ class EntityManager {
     });
   }
 
-  render() {
+  render(canvas, ctx) {
     this.entities.forEach((entity) => {
-      entity.render();
+      entity.render(canvas, ctx);
     });
   }
 
   addEntity(e) {
     this.entities.push(e);
+    console.log(this.entities);
+  }
+
+  clearEntities() {
+    this.entities = [this.player];
   }
 }
 
