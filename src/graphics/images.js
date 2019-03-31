@@ -1,13 +1,13 @@
-import bg from '../../assets/images/bg.png';
+import background from '../assets/images/background.png';
 
 const bgImg = new Image();
-bgImg.src = bg;
+bgImg.src = background;
 
 const spritesheets = {
-  bg: {
+  outside: {
     img: bgImg,
-    rows: 1,
-    columns: 1
+    rows: 90,
+    columns: 8
   }
 };
 

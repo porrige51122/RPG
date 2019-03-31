@@ -4,7 +4,7 @@ import World from '../worlds/world';
 class Menu extends State {
   constructor(handler) {
     super(handler);
-    this.world = new World(handler);
+    this.world = new World(handler, "World1.json");
   }
 
   tick() {

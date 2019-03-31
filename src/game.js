@@ -28,6 +28,7 @@ class Game {
     canvas.addEventListener("mousedown", () => this.mouse.click());
     canvas.addEventListener("mouseup", () => this.mouse.release());
     canvas.addEventListener("mousemove", () => this.mouse.move(event));
+
     // Get all assets
     this.assets = new Assets();
 

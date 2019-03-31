@@ -86,14 +86,59 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./assets/images/bg.png":
-/*!******************************!*\
-  !*** ./assets/images/bg.png ***!
-  \******************************/
+/***/ "./src/assets/images/background.png":
+/*!******************************************!*\
+  !*** ./src/assets/images/background.png ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "a1c7dc8a5a266dd97c80347baac4deef.png";
+module.exports = __webpack_require__.p + "a70f0affc82084cb3f99bdfb7b7b0d4f.png";
+
+/***/ }),
+
+/***/ "./src/assets/maps sync recursive ^\\.\\/.*$":
+/*!***************************************!*\
+  !*** ./src/assets/maps sync ^\.\/.*$ ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./World1": "./src/assets/maps/World1.json",
+	"./World1.json": "./src/assets/maps/World1.json"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./src/assets/maps sync recursive ^\\.\\/.*$";
+
+/***/ }),
+
+/***/ "./src/assets/maps/World1.json":
+/*!*************************************!*\
+  !*** ./src/assets/maps/World1.json ***!
+  \*************************************/
+/*! exports provided: width, height, map, default */
+/***/ (function(module) {
+
+module.exports = {"width":20,"height":20,"map":[[1,2,2,3,0,0,0,0,0,0,0,0,0,0,0,8,8,8,8,8],[9,10,10,7,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[9,10,10,10,10,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[9,10,10,15,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[17,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]};
 
 /***/ }),
 
@@ -207,7 +252,7 @@ var EntityManager = function () {
     key: "addEntity",
     value: function addEntity(e) {
       this.entities.push(e);
-      console.log(this.entities);
+      console.log(e);
     }
   }, {
     key: "clearEntities",
@@ -223,10 +268,10 @@ exports.default = EntityManager;
 
 /***/ }),
 
-/***/ "./src/entities/tiles/bg.js":
-/*!**********************************!*\
-  !*** ./src/entities/tiles/bg.js ***!
-  \**********************************/
+/***/ "./src/entities/tiles/outside.js":
+/*!***************************************!*\
+  !*** ./src/entities/tiles/outside.js ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -249,19 +294,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Bg = function (_Entity) {
-  _inherits(Bg, _Entity);
+var Outside = function (_Entity) {
+  _inherits(Outside, _Entity);
 
-  function Bg(handler, pos, size, vel, index) {
-    _classCallCheck(this, Bg);
+  function Outside(handler, pos, size, index) {
+    _classCallCheck(this, Outside);
 
-    return _possibleConstructorReturn(this, (Bg.__proto__ || Object.getPrototypeOf(Bg)).call(this, handler, pos, size, vel, handler.game.assets.bg, index));
+    return _possibleConstructorReturn(this, (Outside.__proto__ || Object.getPrototypeOf(Outside)).call(this, handler, pos, size, [0, 0], handler.game.assets.outside, index));
   }
 
-  return Bg;
+  return Outside;
 }(_entity2.default);
 
-exports.default = Bg;
+exports.default = Outside;
 
 /***/ }),
 
@@ -339,6 +384,7 @@ var Game = function () {
       canvas.addEventListener("mousemove", function () {
         return _this.mouse.move(event);
       });
+
       // Get all assets
       this.assets = new _assets2.default();
 
@@ -433,7 +479,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var Assets = function Assets() {
   _classCallCheck(this, Assets);
 
-  this.bg = new _spritesheet2.default(_images2.default.bg);
+  this.outside = new _spritesheet2.default(_images2.default.outside);
 };
 
 exports.default = Assets;
@@ -454,20 +500,20 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _bg = __webpack_require__(/*! ../../assets/images/bg.png */ "./assets/images/bg.png");
+var _background = __webpack_require__(/*! ../assets/images/background.png */ "./src/assets/images/background.png");
 
-var _bg2 = _interopRequireDefault(_bg);
+var _background2 = _interopRequireDefault(_background);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var bgImg = new Image();
-bgImg.src = _bg2.default;
+bgImg.src = _background2.default;
 
 var spritesheets = {
-  bg: {
+  outside: {
     img: bgImg,
-    rows: 1,
-    columns: 1
+    rows: 90,
+    columns: 8
   }
 };
 
@@ -700,7 +746,7 @@ var Menu = function (_State) {
 
     var _this = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, handler));
 
-    _this.world = new _world2.default(handler);
+    _this.world = new _world2.default(handler, "World1.json");
     return _this;
   }
 
@@ -769,6 +815,59 @@ exports.default = State;
 
 /***/ }),
 
+/***/ "./src/tiles/outsideTiles.js":
+/*!***********************************!*\
+  !*** ./src/tiles/outsideTiles.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var OutsideTiles = function () {
+  function OutsideTiles(handler) {
+    _classCallCheck(this, OutsideTiles);
+
+    this.TILEWIDTH = 64;
+    this.TILEHEIGHT = 64;
+    this.tiles = new Array(720);
+
+    // Tile List Here
+    for (var x = 0; x < 8; x++) {
+      for (var y = 0; y < 90; y++) {
+        this.addTile(x + y * 8, [x, y]);
+      }
+    }
+  }
+
+  _createClass(OutsideTiles, [{
+    key: "addTile",
+    value: function addTile(id, index) {
+      this.tiles[id] = index;
+    }
+  }, {
+    key: "getTile",
+    value: function getTile(id) {
+      return this.tiles[id];
+    }
+  }]);
+
+  return OutsideTiles;
+}();
+
+exports.default = OutsideTiles;
+
+/***/ }),
+
 /***/ "./src/worlds/world.js":
 /*!*****************************!*\
   !*** ./src/worlds/world.js ***!
@@ -789,23 +888,33 @@ var _entityManager = __webpack_require__(/*! ../entities/entityManager */ "./src
 
 var _entityManager2 = _interopRequireDefault(_entityManager);
 
-var _bg = __webpack_require__(/*! ../entities/tiles/bg */ "./src/entities/tiles/bg.js");
+var _outside = __webpack_require__(/*! ../entities/tiles/outside */ "./src/entities/tiles/outside.js");
 
-var _bg2 = _interopRequireDefault(_bg);
+var _outside2 = _interopRequireDefault(_outside);
+
+var _outsideTiles = __webpack_require__(/*! ../tiles/outsideTiles */ "./src/tiles/outsideTiles.js");
+
+var _outsideTiles2 = _interopRequireDefault(_outsideTiles);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var World = function () {
-  function World(handler) {
+  function World(handler, map) {
     _classCallCheck(this, World);
 
     this.handler = handler;
     this.entityManager = new _entityManager2.default(this.handler);
 
-    // TEMP
-    this.entityManager.addEntity(new _bg2.default(this.handler, [0, 0], [100, 100], [0, 0], [0, 0]));
+    this.tiles = new _outsideTiles2.default(handler);
+    this.loadWorld(map);
+
+    for (var y = 0; y < this.height; y++) {
+      for (var x = 0; x < this.width; x++) {
+        this.entityManager.addEntity(new _outside2.default(this.handler, [x * this.tiles.TILEWIDTH, y * this.tiles.TILEHEIGHT], [this.tiles.TILEWIDTH, this.tiles.TILEHEIGHT], this.tiles.getTile(this.map[y][x])));
+      }
+    }
   }
 
   _createClass(World, [{
@@ -817,6 +926,14 @@ var World = function () {
     key: 'tick',
     value: function tick() {
       this.entityManager.tick();
+    }
+  }, {
+    key: 'loadWorld',
+    value: function loadWorld(map) {
+      var file = __webpack_require__("./src/assets/maps sync recursive ^\\.\\/.*$")("./" + map);
+      this.width = file.width;
+      this.height = file.height;
+      this.map = file.map;
     }
   }]);
 
