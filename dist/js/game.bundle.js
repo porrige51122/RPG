@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "a70f0affc82084cb3f99bdfb7b7b0d4f.png";
+module.exports = __webpack_require__.p + "src/assets/images/background.png";
 
 /***/ }),
 
@@ -138,7 +138,7 @@ webpackContext.id = "./src/assets/maps sync recursive ^\\.\\/.*$";
 /*! exports provided: width, height, map, default */
 /***/ (function(module) {
 
-module.exports = {"width":20,"height":20,"map":[[1,2,2,3,0,0,0,0,0,0,0,0,0,0,0,8,8,8,8,8],[9,10,10,7,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[9,10,10,10,10,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[9,10,10,15,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[17,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]};
+module.exports = {"width":30,"height":40,"map":[[1,2,2,3,0,0,0,0,0,0,0,0,0,0,0,8,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0],[9,10,10,7,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[9,10,10,10,10,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[9,10,10,15,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[17,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,83,341,342,343,83,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[82,83,83,83,84,50,349,350,351,50,76,0,0,0,68,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[50,59,51,50,50,51,357,358,359,50,567,96,97,68,543,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[50,50,50,61,50,50,365,366,367,50,575,104,105,551,559,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[49,49,49,49,49,49,373,374,375,49,583,112,113,49,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,2,2,3,0,0,0,0,0,0,0,0,0,0,0,8,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0],[9,10,10,7,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[9,10,10,10,10,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[9,10,10,15,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[17,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,2,2,3,0,0,0,0,0,0,0,0,0,0,0,8,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0],[9,10,10,7,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[9,10,10,10,10,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[9,10,10,15,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[17,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]};
 
 /***/ }),
 
@@ -252,7 +252,6 @@ var EntityManager = function () {
     key: "addEntity",
     value: function addEntity(e) {
       this.entities.push(e);
-      console.log(e);
     }
   }, {
     key: "clearEntities",
@@ -336,6 +335,10 @@ var _assets = __webpack_require__(/*! ./graphics/assets */ "./src/graphics/asset
 
 var _assets2 = _interopRequireDefault(_assets);
 
+var _gameCamera = __webpack_require__(/*! ./graphics/gameCamera */ "./src/graphics/gameCamera.js");
+
+var _gameCamera2 = _interopRequireDefault(_gameCamera);
+
 var _loading = __webpack_require__(/*! ./states/loading */ "./src/states/loading.js");
 
 var _loading2 = _interopRequireDefault(_loading);
@@ -348,6 +351,10 @@ var _mouse = __webpack_require__(/*! ./input/mouse */ "./src/input/mouse.js");
 
 var _mouse2 = _interopRequireDefault(_mouse);
 
+var _keyboard = __webpack_require__(/*! ./input/keyboard */ "./src/input/keyboard.js");
+
+var _keyboard2 = _interopRequireDefault(_keyboard);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -359,8 +366,13 @@ var Game = function () {
     this.canvas = canvas;
     this.ctx = ctx;
 
+    //number of tiles on the canvas
+    this.width = 25;
+    this.height = 15;
+
     // init listeners here
     this.mouse = new _mouse2.default();
+    this.kbd = new _keyboard2.default();
   }
 
   _createClass(Game, [{
@@ -375,14 +387,21 @@ var Game = function () {
       var _this = this;
 
       // Add listeners here
-      canvas.addEventListener("mousedown", function () {
+      canvas.addEventListener('mousedown', function () {
         return _this.mouse.click();
       });
-      canvas.addEventListener("mouseup", function () {
+      canvas.addEventListener('mouseup', function () {
         return _this.mouse.release();
       });
-      canvas.addEventListener("mousemove", function () {
+      canvas.addEventListener('mousemove', function () {
         return _this.mouse.move(event);
+      });
+
+      window.addEventListener('keydown', function () {
+        return _this.kbd.click(event);
+      });
+      window.addEventListener('keyup', function () {
+        return _this.kbd.release();
       });
 
       // Get all assets
@@ -397,6 +416,9 @@ var Game = function () {
 
       // Setting initial State
       this.handler.currentState = this.menuState;
+
+      // Setting Game Camera
+      this.gameCamera = new _gameCamera2.default(this.handler, 0, 0);
     }
   }, {
     key: 'loop',
@@ -417,6 +439,9 @@ var Game = function () {
       if (canvas.width != window.innerWidth || canvas.height != window.innerHeight) {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        if (this.handler.world != null) {
+          this.handler.world.tiles.getSize(this.width, this.height, canvas);
+        }
       }
     }
   }, {
@@ -424,6 +449,21 @@ var Game = function () {
     value: function tick() {
       // run tick method in current game state
       if (this.handler.currentState != null) this.handler.currentState.tick();
+
+      if (this.kbd.keyDown) {
+        if (this.kbd.keyId == 83) {
+          this.gameCamera.move(0, 1);
+        }
+        if (this.kbd.keyId == 87) {
+          this.gameCamera.move(0, -1);
+        }
+        if (this.kbd.keyId == 68) {
+          this.gameCamera.move(1, 0);
+        }
+        if (this.kbd.keyId == 65) {
+          this.gameCamera.move(-1, 0);
+        }
+      }
     }
   }, {
     key: 'render',
@@ -483,6 +523,48 @@ var Assets = function Assets() {
 };
 
 exports.default = Assets;
+
+/***/ }),
+
+/***/ "./src/graphics/gameCamera.js":
+/*!************************************!*\
+  !*** ./src/graphics/gameCamera.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var GameCamera = function () {
+  function GameCamera(handler, xOffset, yOffset) {
+    _classCallCheck(this, GameCamera);
+
+    this.handler = handler;
+    this.xOffset = xOffset;
+    this.yOffset = yOffset;
+  }
+
+  _createClass(GameCamera, [{
+    key: "move",
+    value: function move(x, y) {
+      this.xOffset += x;
+      this.yOffset += y;
+    }
+  }]);
+
+  return GameCamera;
+}();
+
+exports.default = GameCamera;
 
 /***/ }),
 
@@ -593,6 +675,52 @@ var Handler = function Handler(game) {
 };
 
 exports.default = Handler;
+
+/***/ }),
+
+/***/ "./src/input/keyboard.js":
+/*!*******************************!*\
+  !*** ./src/input/keyboard.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Keyboard = function () {
+  function Keyboard() {
+    _classCallCheck(this, Keyboard);
+
+    this.keyId = null;
+    this.keyDown = false;
+  }
+
+  _createClass(Keyboard, [{
+    key: "click",
+    value: function click(event) {
+      this.keyId = event.keyCode;
+      this.keyDown = true;
+    }
+  }, {
+    key: "release",
+    value: function release() {
+      this.keyDown = false;
+    }
+  }]);
+
+  return Keyboard;
+}();
+
+exports.default = Keyboard;
 
 /***/ }),
 
@@ -747,6 +875,7 @@ var Menu = function (_State) {
     var _this = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, handler));
 
     _this.world = new _world2.default(handler, "World1.json");
+    handler.world = _this.world;
     return _this;
   }
 
@@ -762,7 +891,7 @@ var Menu = function (_State) {
   }, {
     key: 'render',
     value: function render(canvas, ctx) {
-      ctx.fillStyle = "red";
+      ctx.fillStyle = "Yellow";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       this.world.render(canvas, ctx);
     }
@@ -837,8 +966,7 @@ var OutsideTiles = function () {
   function OutsideTiles(handler) {
     _classCallCheck(this, OutsideTiles);
 
-    this.TILEWIDTH = 64;
-    this.TILEHEIGHT = 64;
+    this.getSize(handler.game.width, handler.game.height, handler.game.canvas);
     this.tiles = new Array(720);
 
     // Tile List Here
@@ -850,6 +978,17 @@ var OutsideTiles = function () {
   }
 
   _createClass(OutsideTiles, [{
+    key: "getSize",
+    value: function getSize(width, height, canvas) {
+      this.TILEWIDTH = canvas.width / width;
+      this.TILEHEIGHT = canvas.height / height;
+      if (canvas.width / width * height < canvas.height) {
+        this.TILEWIDTH = this.TILEHEIGHT = Math.round(canvas.width / width);
+      } else {
+        this.TILEWIDTH = this.TILEHEIGHT = Math.round(canvas.height / height);
+      }
+    }
+  }, {
     key: "addTile",
     value: function addTile(id, index) {
       this.tiles[id] = index;
@@ -909,17 +1048,23 @@ var World = function () {
 
     this.tiles = new _outsideTiles2.default(handler);
     this.loadWorld(map);
-
-    for (var y = 0; y < this.height; y++) {
-      for (var x = 0; x < this.width; x++) {
-        this.entityManager.addEntity(new _outside2.default(this.handler, [x * this.tiles.TILEWIDTH, y * this.tiles.TILEHEIGHT], [this.tiles.TILEWIDTH, this.tiles.TILEHEIGHT], this.tiles.getTile(this.map[y][x])));
-      }
-    }
   }
 
   _createClass(World, [{
     key: 'render',
     value: function render(canvas, ctx) {
+      // Sets start and end render area relative to game camera
+      var startx = Math.max(0, this.handler.game.gameCamera.xOffset / this.tiles.TILEWIDTH);
+      var endx = Math.min(this.width, this.handler.game.width + Math.ceil(startx));
+      var starty = Math.max(0, this.handler.game.gameCamera.yOffset / this.tiles.TILEHEIGHT);
+      var endy = Math.min(this.height, this.handler.game.height + Math.ceil(starty));
+
+      // Draws Tiles
+      for (var y = starty; y < endy; y++) {
+        for (var x = startx; x < endx; x++) {
+          new _outside2.default(this.handler, [Math.round((Math.floor(x) - startx) * this.tiles.TILEWIDTH), Math.round((Math.floor(y) - starty) * this.tiles.TILEHEIGHT)], [this.tiles.TILEWIDTH, this.tiles.TILEHEIGHT], this.tiles.getTile(this.map[Math.floor(y)][Math.floor(x)])).render(canvas, ctx);
+        }
+      }
       this.entityManager.render(canvas, ctx);
     }
   }, {

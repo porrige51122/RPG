@@ -19,7 +19,6 @@ class EntityManager {
 
   addEntity(e) {
     this.entities.push(e);
-    console.log(e);
   }
 
   clearEntities() {

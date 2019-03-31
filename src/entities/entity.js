@@ -20,7 +20,7 @@ class Entity {
     ctx.drawImage(
       this.spritesheet.img,
       img.x, img.y,
-      img.width, img.height,
+      img.width, img.height ,
       this.pos[0], this.pos[1],
       this.size[0], this.size[1]
     )

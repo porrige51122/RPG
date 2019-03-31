@@ -5,6 +5,7 @@ class Menu extends State {
   constructor(handler) {
     super(handler);
     this.world = new World(handler, "World1.json");
+    handler.world = this.world;
   }
 
   tick() {
@@ -18,7 +19,7 @@ class Menu extends State {
   }
 
   render(canvas, ctx) {
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "Yellow";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     this.world.render(canvas, ctx);
   }

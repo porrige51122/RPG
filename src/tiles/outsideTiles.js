@@ -1,7 +1,6 @@
 class OutsideTiles {
   constructor(handler) {
-    this.TILEWIDTH = 64;
-    this.TILEHEIGHT = 64;
+    this.getSize(handler.game.width, handler.game.height, handler.game.canvas);
     this.tiles = new Array(720);
 
     // Tile List Here
@@ -9,6 +8,15 @@ class OutsideTiles {
       for (let y = 0; y < 90; y++) {
         this.addTile(x+(y*8), [x,y]);
       }
+    }
+  }
+  getSize(width, height, canvas) {
+    this.TILEWIDTH = canvas.width/width;
+    this.TILEHEIGHT = canvas.height/height;
+    if (canvas.width / width * height < canvas.height) {
+      this.TILEWIDTH = this.TILEHEIGHT = Math.round(canvas.width/width)
+    } else {
+      this.TILEWIDTH = this.TILEHEIGHT = Math.round(canvas.height/height)
     }
   }
 

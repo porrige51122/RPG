@@ -28,10 +28,13 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          'file-loader'
-        ]
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: 'src/assets/images/[name].[ext]'
+          },
+        }]
       }
     ]
   },

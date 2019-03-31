@@ -1,5 +1,6 @@
 import Handler from './handler';
 import Assets from './graphics/assets';
+import GameCamera from './graphics/gameCamera';
 
 // states
 import Loading from './states/loading';
@@ -7,6 +8,7 @@ import Menu from './states/menu';
 
 // listeners
 import Mouse from './input/mouse';
+import Keyboard from './input/keyboard';
 
 
 class Game {
@@ -14,8 +16,14 @@ class Game {
     this.canvas = canvas;
     this.ctx = ctx;
 
+    //number of tiles on the canvas
+    this.width = 25;
+    this.height = 15;
+
+
     // init listeners here
     this.mouse = new Mouse();
+    this.kbd = new Keyboard();
   }
 
   start() {
@@ -25,9 +33,12 @@ class Game {
 
   init() {
     // Add listeners here
-    canvas.addEventListener("mousedown", () => this.mouse.click());
-    canvas.addEventListener("mouseup", () => this.mouse.release());
-    canvas.addEventListener("mousemove", () => this.mouse.move(event));
+    canvas.addEventListener('mousedown', () => this.mouse.click());
+    canvas.addEventListener('mouseup', () => this.mouse.release());
+    canvas.addEventListener('mousemove', () => this.mouse.move(event));
+
+    window.addEventListener('keydown', () => this.kbd.click(event));
+    window.addEventListener('keyup', () => this.kbd.release());
 
     // Get all assets
     this.assets = new Assets();
@@ -42,6 +53,8 @@ class Game {
     // Setting initial State
     this.handler.currentState = this.menuState;
 
+    // Setting Game Camera
+    this.gameCamera = new GameCamera(this.handler, 0, 0);
 
   }
 
@@ -59,6 +72,9 @@ class Game {
     if (canvas.width != window.innerWidth ||canvas.height != window.innerHeight) {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      if (this.handler.world != null) {
+        this.handler.world.tiles.getSize(this.width, this.height, canvas)
+      }
     }
   }
 
@@ -66,6 +82,21 @@ class Game {
     // run tick method in current game state
     if (this.handler.currentState != null)
       this.handler.currentState.tick();
+
+    if (this.kbd.keyDown) {
+      if (this.kbd.keyId == 83) {
+        this.gameCamera.move(0,1);
+      }
+      if (this.kbd.keyId == 87) {
+        this.gameCamera.move(0,-1);
+      }
+      if (this.kbd.keyId == 68) {
+        this.gameCamera.move(1,0);
+      }
+      if (this.kbd.keyId == 65) {
+        this.gameCamera.move(-1,0);
+      }
+    }
   }
 
   render() {
